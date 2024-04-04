@@ -1,0 +1,24 @@
+<!-- templates/configuration.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Configuration</title>
+</head>
+<body>
+    <h2>Configure AI Parameters</h2>
+    <form method="POST">
+        <label for="temperature">Temperature:</label><br>
+        <input type="text" id="temperature" name="temperature" value="{{config.temperature}}"><br>
+        <label for="max_tokens">Max Tokens:</label><br>
+        <input type="text" id="max_tokens" name="max_tokens" value="{{config.max_tokens}}"><br>
+		<label for="instruction_prompt">AI Instruction Prompt:</label><br>
+		<textarea id="instruction_prompt" name="instruction_prompt" rows="15" cols="200">{{config.instruction_prompt}}</textarea><br>
+        <label for="auto_process_emails">Enable Automatic Email Processing:</label>
+		<input type="checkbox" id="auto_process_emails" name="auto_process_emails" {% if config.get('auto_process_emails') %}checked{% endif %}>
+    
+		<button type="submit">Save Settings</button>
+    </form>
+</body>
+</html>

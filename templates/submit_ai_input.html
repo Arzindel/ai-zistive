@@ -1,0 +1,17 @@
+<!-- submit_ai_input.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit AI Input</title>
+</head>
+<body>
+    <h2>Send AI Input</h2>
+    <form action="/ai-output" method="POST">
+        <!-- Hidden input to carry the AI input data if needed; otherwise, data can be prepared server-side -->
+		<input type="hidden" name="action" value="send_to_ai">
+        <button type="submit">Send to AI</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!-- ai_output.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Response</title>
+</head>
+<body>
+    <h2>AI Response</h2>
+    {% if ai_response %}
+        <p>Response: {{ ai_response['choices'][0]['text'] }}</p>
+        <form action="/ai-output" method="post">
+            <input type="hidden" name="action" value="create_draft">
+            <input type="hidden" name="ai_text" value="{{ ai_response['choices'][0]['text'] }}">
+            <button type="submit">Create Gmail Draft</button>
+        </form>
+    {% else %}
+        <p>No response received from AI.</p>
+    {% endif %}
+</body>
+</html>
